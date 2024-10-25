@@ -1,4 +1,4 @@
-import cli { display_question, Question }
+import vin { display_question, Question }
 
 fn main() {
     questions := [
