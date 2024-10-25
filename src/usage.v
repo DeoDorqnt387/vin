@@ -3,17 +3,26 @@ import vin { display_question, Question }
 fn main() {
     questions := [
         Question{
-            prompt: "What is your favorite lang?",
+            type: "list",
+            prompt: "What is your favorite programming lang?",
             choices: ["VLang", "GoLang", "Ruby", "Rust", "Python"]
         },
         Question{
+            type: "input",
             prompt: "Which game do you like most?",
-            choices: ["Game 1", "Game 2", "Game 3"]
-        }
+        },
+        Question{
+            type: "confirm",
+            prompt: "Confirm?",
+        },
+        Question{
+            type: "password",
+            prompt: "Your password!",
+        },
     ]
     
     for q in questions {
-		answer := display_question(q) or { panic(err) return }
-        println("You selected $answer")
+        answer := display_question(q) or { panic(err) return }
+        println("You selected ${answer}")
     }
 }
