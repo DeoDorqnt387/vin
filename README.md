@@ -6,7 +6,7 @@ vin
 A Basic Command Line Interface for V
 </h3>
 
-[![](https://github.com/user-attachments/assets/0dccb22a-eea6-4b55-8e8c-927b30d05843)](https://github.com/user-attachments/assets/0dccb22a-eea6-4b55-8e8c-927b30d05843)
+[![](https://github.com/user-attachments/assets/29adf541-9fc3-4679-af0f-ee0f941b404c)](https://github.com/user-attachments/assets/29adf541-9fc3-4679-af0f-ee0f941b404c)
 
 # Manual Installation
 ```bash
@@ -21,18 +21,28 @@ import vin { display_question, Question }
 fn main() {
     questions := [
         Question{
-            prompt: "What is your favorite lang?",
+            type: "list",
+            prompt: "What is your favorite programming lang?",
             choices: ["VLang", "GoLang", "Ruby", "Rust", "Python"]
         },
         Question{
+            type: "input",
             prompt: "Which game do you like most?",
-            choices: ["Game 1", "Game 2", "Game 3"]
-        }
+        },
+        Question{
+            type: "confirm",
+            prompt: "Confirm?",
+        },
+        Question{
+            type: "password",
+            prompt: "Your password!",
+        },
     ]
     
     for q in questions {
         answer := display_question(q) or { panic(err) return }
-        println("You selected $answer")
+        println("You selected ${answer}")
     }
 }
+
 ```
