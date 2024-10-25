@@ -13,10 +13,7 @@ fn main() {
     ]
     
     for q in questions {
-        answer := display_question(q) or {
-            println("Error: $err")
-            return
-        }
+		answer := display_question(q) or { panic(err) return }
         println("You selected $answer")
     }
 }
