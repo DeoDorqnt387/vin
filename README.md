@@ -8,9 +8,11 @@ A Basic Command Line Interface for V
 
 [![](https://github.com/user-attachments/assets/0dccb22a-eea6-4b55-8e8c-927b30d05843)](https://github.com/user-attachments/assets/0dccb22a-eea6-4b55-8e8c-927b30d05843)
 
-# Installation
-```V
-v install ?
+# Manual Installation
+```bash
+git clone https://github.com/DeoDorqnt387/vin.git
+cd vin
+v run . 
 ```
 # Example Usage
 ```V
