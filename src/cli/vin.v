@@ -1,4 +1,4 @@
-module cli
+module vin
 
 import term
 import readline { read_line }
