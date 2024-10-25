@@ -45,12 +45,6 @@ pub fn display_question(q Question) !string {
         }
 
         match input.bytestr() {
-            '\e' { // ESC key
-                return error("Escaped")
-            }
-            '\r' { // Enter key
-                return q.choices[selected_index]
-            }
             '\x1b[A' { // Up arrow key
                 if selected_index > 0 {
                     selected_index--
