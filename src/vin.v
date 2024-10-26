@@ -14,7 +14,6 @@ pub struct Question {
 
 pub fn display_question(q Question) !string {
     mut selected_index := 0
-    term.clear()
     
     mut r := readline.Readline{}
     r.enable_raw_mode()
@@ -27,7 +26,7 @@ pub fn display_question(q Question) !string {
     for {
         term.set_cursor_position(x: 0, y: 0)
         if q.type == "list"{
-           
+            println(q.prompt)
             for i, choice in q.choices {
                 if i == selected_index {
                     println(term.bright_green('> ${choice}'))
@@ -35,17 +34,17 @@ pub fn display_question(q Question) !string {
                     println('  ${choice}')
                 }
             }
-            
-            match r.read_char() {
-                'e'{
+        
+            match r.read_char()! {
+                10, 13 {
                     return ""
                 }
-                '\x1b[A' {
+                65 {
                     if selected_index > 0 {
                         selected_index--
                     }
                 }
-                '\x1b[B' {
+                66 {
                     if selected_index < q.choices.len - 1 {
                         selected_index++
                     }
