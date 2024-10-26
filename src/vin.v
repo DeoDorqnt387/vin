@@ -11,6 +11,7 @@ pub struct Question {
     choices []string
 }
 
+
 pub fn display_question(q Question) !string {
     mut selected_index := 0
     term.clear()
@@ -26,7 +27,7 @@ pub fn display_question(q Question) !string {
     for {
         term.set_cursor_position(x: 0, y: 0)
         if q.type == "list"{
-            println(q.prompt)
+           
             for i, choice in q.choices {
                 if i == selected_index {
                     println(term.bright_green('> ${choice}'))
@@ -34,19 +35,11 @@ pub fn display_question(q Question) !string {
                     println('  ${choice}')
                 }
             }
-
-            mut input := []u8{len: 3}
-            input[0] = u8(r.read_char()!) 
-            if input[0] == `\e` {
-                input[1] = u8(r.read_char()!) 
-                input[2] = u8(r.read_char()!)
-            } else if input[0] == `\r` {
-                return q.choices[selected_index]
-            } else if input[0] == `\e` {
-                return error("Escaped")
-            }
-
-            match input.bytestr() {
+            
+            match r.read_char() {
+                'e'{
+                    return ""
+                }
                 '\x1b[A' {
                     if selected_index > 0 {
                         selected_index--
