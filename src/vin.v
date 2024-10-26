@@ -4,6 +4,10 @@ import os
 import term
 import readline { read_line }
 
+const enter = 13
+const up_arrow = 65
+const down_arrow = 66
+
 pub struct Question {
     pub:
     type string
@@ -11,11 +15,10 @@ pub struct Question {
     choices []string
 }
 
-
 pub fn display_question(q Question) !string {
     mut selected_index := 0
     term.clear()
-	
+
     mut r := readline.Readline{}
     r.enable_raw_mode()
     defer {
@@ -37,15 +40,15 @@ pub fn display_question(q Question) !string {
             }
         
             match r.read_char()! {
-                10, 13 {
-		    return q.choices[selected_index]
+                enter {
+                    return q.choices[selected_index]
                 }
-                65 {
+                up_arrow {
                     if selected_index > 0 {
                         selected_index--
                     }
                 }
-                66 {
+                down_arrow {
                     if selected_index < q.choices.len - 1 {
                         selected_index++
                     }
