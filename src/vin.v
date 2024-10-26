@@ -14,7 +14,7 @@ pub struct Question {
 
 pub fn display_question(q Question) !string {
     mut selected_index := 0
-	term.clear()
+    term.clear()
 	
     mut r := readline.Readline{}
     r.enable_raw_mode()
@@ -38,7 +38,7 @@ pub fn display_question(q Question) !string {
         
             match r.read_char()! {
                 10, 13 {
-                    return ""
+		    return q.choices[selected_index]
                 }
                 65 {
                     if selected_index > 0 {
