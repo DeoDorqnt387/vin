@@ -25,7 +25,7 @@ fn main() {
         },
         Question{
             type: "input",
-            prompt: "Which game do you like most?",
+            prompt: "Which game do you like the most?",
         },
         Question{
             type: "confirm",
