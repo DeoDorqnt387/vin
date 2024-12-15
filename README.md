@@ -3,7 +3,7 @@ vin
 </h1>
 
 <h3 align="center">
-A Basic Command Line Interface for V
+A Simple Command Line Interface for V
 </h3>
 
 [![](https://github.com/user-attachments/assets/29adf541-9fc3-4679-af0f-ee0f941b404c)](https://github.com/user-attachments/assets/29adf541-9fc3-4679-af0f-ee0f941b404c)
