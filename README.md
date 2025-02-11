@@ -12,6 +12,10 @@ A Simple Command Line Interface for V
 ```bash
 v install --git https://github.com/DeoDorqnt387/vin
 ```
+or 
+```bash
+v install DeoDorqnt387.vin
+```
 # Example Usage
 ```V
 import vin { display_question, Question }
